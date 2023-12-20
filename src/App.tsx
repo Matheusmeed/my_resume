@@ -1,14 +1,15 @@
 import AboutMe from './sections/AboutMe';
 import Profile from './sections/Profile';
 import Test from './sections/TestSection';
+import ScrollablePage from './shared/components/ScrollablePage';
 
 const App = () => {
   return (
-    <div>
+    <ScrollablePage>
       <Profile />
       <AboutMe />
       <Test />
-    </div>
+    </ScrollablePage>
   );
 };
 export default App;
