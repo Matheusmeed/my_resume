@@ -9,7 +9,7 @@ export const ButtonDiv = styled.div`
   bottom: 100px;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<{ isSelected: boolean }>`
   overflow: visible;
   padding: 3px;
   display: flex;
@@ -17,4 +17,12 @@ export const Button = styled.button`
   justify-content: center;
   border: none;
   background: none;
+
+  :hover {
+    cursor: ${({ isSelected }) => (isSelected ? 'unset' : 'pointer')};
+
+    * {
+      color: ${({ isSelected }) => (isSelected ? 'unset' : '#57bdda')};
+    }
+  }
 `;

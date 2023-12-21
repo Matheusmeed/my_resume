@@ -1,21 +1,23 @@
 import { Button, ButtonDiv } from './styles';
-import { FaRegCircle } from 'react-icons/fa6';
-import { FaSquare } from 'react-icons/fa6';
+// import { FaRegCircle } from 'react-icons/fa6';
+// import { FaSquare } from 'react-icons/fa6';
+import { SiReact } from 'react-icons/si';
+import { SiPreact } from 'react-icons/si';
 
 const ChangeSectionButtons = () => {
   return (
     <ButtonDiv>
-      <Button>
-        <FaSquare size={25} color={'blue'} />
+      <Button isSelected={true}>
+        <SiPreact size={30} color={'#087EA4'} />
       </Button>
-      <Button>
-        <FaRegCircle size={20} />
+      <Button isSelected={false}>
+        <SiReact size={20} color={'#087EA4'} className={'reactIcon'} />
       </Button>
-      <Button>
-        <FaRegCircle size={20} />
+      <Button isSelected={false}>
+        <SiReact size={20} color={'#087EA4'} className={'reactIcon'} />
       </Button>
-      <Button>
-        <FaRegCircle size={20} />
+      <Button isSelected={false}>
+        <SiReact size={20} color={'#087EA4'} className={'reactIcon'} />
       </Button>
     </ButtonDiv>
   );
