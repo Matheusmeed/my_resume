@@ -1,3 +1,4 @@
+import { SiPreact, SiReact } from 'react-icons/si';
 import styled, { css, keyframes } from 'styled-components';
 
 const rotateAnimation = keyframes`
@@ -16,6 +17,16 @@ export const ButtonDiv = styled.div`
   position: fixed;
   right: 100px;
   bottom: 100px;
+`;
+
+export const StyledSiReact = styled(SiReact)`
+  font-size: 20px;
+  color: #087ea4;
+`;
+
+export const StyledSiPreact = styled(SiPreact)`
+  font-size: 30px;
+  color: #087ea4;
 `;
 
 export const Button = styled.button<{ isSelected: boolean }>`

@@ -1,6 +1,4 @@
-import { Button, ButtonDiv } from './styles';
-import { SiReact } from 'react-icons/si';
-import { SiPreact } from 'react-icons/si';
+import { Button, ButtonDiv, StyledSiPreact, StyledSiReact } from './styles';
 
 interface IChangeSectionButtons {
   sections: {
@@ -20,7 +18,7 @@ const ChangeSectionButtons = ({
       {sections.map((section) => {
         return section.isSelected ? (
           <Button isSelected={true} key={section.name}>
-            <SiPreact size={30} color={'#087EA4'} />
+            <StyledSiPreact />
           </Button>
         ) : (
           <Button
@@ -30,7 +28,7 @@ const ChangeSectionButtons = ({
             }}
             key={section.name}
           >
-            <SiReact size={20} color={'#087EA4'} className={'reactIcon'} />
+            <StyledSiReact />
           </Button>
         );
       })}
