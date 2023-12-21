@@ -4,18 +4,28 @@ import ChangeSectionButtons from './shared/components/ChangeSectionButtons';
 
 const App = () => {
   const [sections, setSections] = useState([
-    { component: Profile(), isSelected: false },
-    { component: AboutMe(), isSelected: true },
-    { component: Test(), isSelected: false },
+    { name: 'profile', component: Profile(), isSelected: true },
+    { name: 'about_me', component: AboutMe(), isSelected: false },
+    { name: 'test', component: Test(), isSelected: false },
   ]);
-  console.log(setSections);
+
+  const handleSectionChange = (name: string) => {
+    const updatedSections = sections.map((section) => ({
+      ...section,
+      isSelected: section.name === name,
+    }));
+    setSections(updatedSections);
+  };
 
   return (
     <div>
       {sections.map((section) => {
         return section.component;
       })}
-      <ChangeSectionButtons sections={sections} />
+      <ChangeSectionButtons
+        sections={sections}
+        handleSectionChange={handleSectionChange}
+      />
     </div>
   );
 };

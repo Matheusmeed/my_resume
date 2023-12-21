@@ -3,10 +3,14 @@ import { SiReact } from 'react-icons/si';
 import { SiPreact } from 'react-icons/si';
 
 interface IChangeSectionButtons {
-  sections: { component: JSX.Element; isSelected: boolean }[];
+  sections: { name: string; component: JSX.Element; isSelected: boolean }[];
+  handleSectionChange: (name: string) => void;
 }
 
-const ChangeSectionButtons = ({ sections }: IChangeSectionButtons) => {
+const ChangeSectionButtons = ({
+  sections,
+  handleSectionChange,
+}: IChangeSectionButtons) => {
   return (
     <ButtonDiv>
       {sections.map((section) => {
@@ -15,7 +19,12 @@ const ChangeSectionButtons = ({ sections }: IChangeSectionButtons) => {
             <SiPreact size={30} color={'#087EA4'} />
           </Button>
         ) : (
-          <Button isSelected={false}>
+          <Button
+            isSelected={false}
+            onClick={() => {
+              handleSectionChange(section.name);
+            }}
+          >
             <SiReact size={20} color={'#087EA4'} className={'reactIcon'} />
           </Button>
         );
