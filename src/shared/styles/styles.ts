@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const SectionScreenWrapper = styled.div<{ backgroundColor: string }>`
-  background-color: ${({ backgroundColor }) => backgroundColor};
+export const SectionScreenWrapper = styled.div`
   height: 100vh;
   width: 100%;
 `;

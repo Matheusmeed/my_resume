@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const rotateAnimation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+`;
 
 export const ButtonDiv = styled.div`
   display: flex;
@@ -17,6 +26,11 @@ export const Button = styled.button<{ isSelected: boolean }>`
   justify-content: center;
   border: none;
   background: none;
+  ${({ isSelected }) =>
+    isSelected &&
+    css`
+      animation: ${rotateAnimation} 0.5s linear;
+    `};
 
   :hover {
     cursor: ${({ isSelected }) => (isSelected ? 'unset' : 'pointer')};
