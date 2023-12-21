@@ -1,11 +1,22 @@
-import { ButtonDiv } from './styles';
+import { Button, ButtonDiv } from './styles';
+import { FaRegCircle } from 'react-icons/fa6';
+import { FaSquare } from 'react-icons/fa6';
 
 const ChangeSectionButtons = () => {
   return (
     <ButtonDiv>
-      <button>oi</button>
-      <button>asd</button>
-      <button>ts</button>
+      <Button>
+        <FaSquare size={25} color={'blue'} />
+      </Button>
+      <Button>
+        <FaRegCircle size={20} />
+      </Button>
+      <Button>
+        <FaRegCircle size={20} />
+      </Button>
+      <Button>
+        <FaRegCircle size={20} />
+      </Button>
     </ButtonDiv>
   );
 };
