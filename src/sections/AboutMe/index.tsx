@@ -2,7 +2,7 @@ import { SectionScreenWrapper } from '../../shared/styles/styles';
 
 const AboutMe = () => {
   return (
-    <SectionScreenWrapper backgroundColor='red'>
+    <SectionScreenWrapper backgroundColor='lightblue'>
       About Me section
     </SectionScreenWrapper>
   );
