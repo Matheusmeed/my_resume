@@ -4,6 +4,7 @@ import ChangeSectionButtons from './shared/components/ChangeSectionButtons';
 import { SectionsWrapper } from './styles';
 
 const App = () => {
+  const [isScrolling, setIsScrolling] = useState(false);
   const [sections, setSections] = useState([
     {
       name: 'profile',
@@ -29,32 +30,45 @@ const App = () => {
     name: string,
     sectionRef: React.RefObject<HTMLDivElement>
   ) => {
+    setIsScrolling(true);
+
     const updatedSections = sections.map((section) => ({
       ...section,
       isSelected: section.name === name,
     }));
     setSections(updatedSections);
+
     sectionRef.current?.scrollIntoView({
       behavior: 'smooth',
     });
+
+    setTimeout(() => {
+      setIsScrolling(false);
+    }, 700);
   };
 
   const handleScroll = (event: WheelEvent) => {
     event.preventDefault();
 
-    if (event.deltaY < 0) {
-      const currentIndex = sections.findIndex((section) => section.isSelected);
+    if (!isScrolling) {
+      if (event.deltaY < 0) {
+        const currentIndex = sections.findIndex(
+          (section) => section.isSelected
+        );
 
-      if (currentIndex > 0) {
-        const previousSection = sections[currentIndex - 1];
-        handleSectionChange(previousSection.name, previousSection.ref);
-      }
-    } else {
-      const currentIndex = sections.findIndex((section) => section.isSelected);
+        if (currentIndex > 0) {
+          const previousSection = sections[currentIndex - 1];
+          handleSectionChange(previousSection.name, previousSection.ref);
+        }
+      } else {
+        const currentIndex = sections.findIndex(
+          (section) => section.isSelected
+        );
 
-      if (currentIndex < sections.length - 1) {
-        const nextSection = sections[currentIndex + 1];
-        handleSectionChange(nextSection.name, nextSection.ref);
+        if (currentIndex < sections.length - 1) {
+          const nextSection = sections[currentIndex + 1];
+          handleSectionChange(nextSection.name, nextSection.ref);
+        }
       }
     }
   };
@@ -66,7 +80,7 @@ const App = () => {
       window.removeEventListener('wheel', handleScroll);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sections]);
+  }, [sections, isScrolling]);
 
   return (
     <SectionsWrapper>
