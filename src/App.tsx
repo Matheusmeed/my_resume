@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AboutMe, Profile, Test } from './sections';
 import ChangeSectionButtons from './shared/components/ChangeSectionButtons';
+import { SectionsWrapper } from './styles';
 
 const App = () => {
   const [sections, setSections] = useState([
@@ -24,16 +25,51 @@ const App = () => {
     },
   ]);
 
-  const handleSectionChange = (name: string) => {
+  const handleSectionChange = (
+    name: string,
+    sectionRef: React.RefObject<HTMLDivElement>
+  ) => {
     const updatedSections = sections.map((section) => ({
       ...section,
       isSelected: section.name === name,
     }));
     setSections(updatedSections);
+    sectionRef.current?.scrollIntoView({
+      behavior: 'smooth',
+    });
   };
 
+  const handleScroll = (event: WheelEvent) => {
+    event.preventDefault();
+
+    if (event.deltaY < 0) {
+      const currentIndex = sections.findIndex((section) => section.isSelected);
+
+      if (currentIndex > 0) {
+        const previousSection = sections[currentIndex - 1];
+        handleSectionChange(previousSection.name, previousSection.ref);
+      }
+    } else {
+      const currentIndex = sections.findIndex((section) => section.isSelected);
+
+      if (currentIndex < sections.length - 1) {
+        const nextSection = sections[currentIndex + 1];
+        handleSectionChange(nextSection.name, nextSection.ref);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('wheel', handleScroll);
+
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sections]);
+
   return (
-    <div>
+    <SectionsWrapper>
       {sections.map((section) => (
         <div ref={section.ref} key={section.name}>
           {section.component()}
@@ -43,7 +79,7 @@ const App = () => {
         sections={sections}
         handleSectionChange={handleSectionChange}
       />
-    </div>
+    </SectionsWrapper>
   );
 };
 export default App;

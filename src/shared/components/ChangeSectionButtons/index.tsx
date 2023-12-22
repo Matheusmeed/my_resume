@@ -7,7 +7,10 @@ interface IChangeSectionButtons {
     isSelected: boolean;
     ref: React.RefObject<HTMLDivElement>;
   }[];
-  handleSectionChange: (name: string) => void;
+  handleSectionChange: (
+    name: string,
+    sectionRef: React.RefObject<HTMLDivElement>
+  ) => void;
 }
 
 const ChangeSectionButtons = ({
@@ -25,10 +28,7 @@ const ChangeSectionButtons = ({
           <Button
             isSelected={false}
             onClick={() => {
-              handleSectionChange(section.name);
-              section.ref.current?.scrollIntoView({
-                behavior: 'smooth',
-              });
+              handleSectionChange(section.name, section.ref);
             }}
             key={section.name}
           >
