@@ -1,7 +1,7 @@
-import { SectionScreenWrapper } from '../../shared/styles/styles';
+import { ProfileSectionDiv } from './styles';
 
 const Profile = () => {
-  return <SectionScreenWrapper>Profile</SectionScreenWrapper>;
+  return <ProfileSectionDiv></ProfileSectionDiv>;
 };
 
 export default Profile;

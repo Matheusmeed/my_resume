@@ -1,7 +1,7 @@
-import { SectionScreenWrapper } from '../../shared/styles/styles';
+import { AboutMeSectionDiv } from './styles';
 
 const AboutMe = () => {
-  return <SectionScreenWrapper>About Me section</SectionScreenWrapper>;
+  return <AboutMeSectionDiv></AboutMeSectionDiv>;
 };
 
 export default AboutMe;

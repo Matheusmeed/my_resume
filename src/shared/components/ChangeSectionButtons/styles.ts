@@ -1,4 +1,6 @@
-import { SiPreact, SiReact } from 'react-icons/si';
+import { FaDiamond } from 'react-icons/fa6';
+import { FaRegSquare } from 'react-icons/fa';
+
 import styled, { css, keyframes } from 'styled-components';
 
 const rotateAnimation = keyframes`
@@ -19,17 +21,20 @@ export const ButtonDiv = styled.div`
   bottom: 100px;
 `;
 
-export const StyledSiReact = styled(SiReact)`
-  font-size: 20px;
-  color: #087ea4;
+export const StyledFaDiamond = styled(FaDiamond)`
+  font-size: 15px;
+  color: ${(props) => props.color || '#ff5a5a'};
 `;
 
-export const StyledSiPreact = styled(SiPreact)`
-  font-size: 30px;
-  color: #087ea4;
+export const StyledFaRegSquare = styled(FaRegSquare)`
+  font-size: 25px;
+  color: ${(props) => props.color || '#ff5a5a'};
 `;
 
-export const Button = styled.button<{ isSelected: boolean }>`
+export const Button = styled.button<{
+  isSelected: boolean;
+  hoverColor?: string;
+}>`
   overflow: visible;
   padding: 3px;
   display: flex;
@@ -47,7 +52,8 @@ export const Button = styled.button<{ isSelected: boolean }>`
     cursor: ${({ isSelected }) => (isSelected ? 'unset' : 'pointer')};
 
     * {
-      color: ${({ isSelected }) => (isSelected ? 'unset' : '#57bdda')};
+      color: ${({ isSelected, hoverColor }) =>
+        isSelected ? 'unset' : hoverColor ? hoverColor : '#57bdda'};
     }
   }
 `;
