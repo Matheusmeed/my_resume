@@ -23,12 +23,12 @@ export const ButtonDiv = styled.div`
 
 export const StyledFaDiamond = styled(FaDiamond)`
   font-size: 15px;
-  color: ${(props) => props.color || '#ff5a5a'};
+  color: ${(props) => props.color || '#e6f9fa'};
 `;
 
 export const StyledFaRegSquare = styled(FaRegSquare)`
   font-size: 25px;
-  color: ${(props) => props.color || '#ff5a5a'};
+  color: ${(props) => props.color || '#82f2fc'};
 `;
 
 export const Button = styled.button<{
@@ -53,7 +53,7 @@ export const Button = styled.button<{
 
     * {
       color: ${({ isSelected, hoverColor }) =>
-        isSelected ? 'unset' : hoverColor ? hoverColor : '#57bdda'};
+        isSelected ? 'unset' : hoverColor ? hoverColor : '#82f2fc'};
     }
   }
 `;
