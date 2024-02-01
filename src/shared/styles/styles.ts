@@ -6,5 +6,5 @@ export const SectionScreenWrapper = styled.div`
   align-items: center;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(to right, #9b9b9b, #213b4b);
+  background: linear-gradient(to right, #7f7f7f, #102c3d);
 `;

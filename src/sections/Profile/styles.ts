@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ProfileSectionDiv = styled.div`
   display: flex;
-  border-width: 3px;
+  border-width: 2px;
   border-style: solid;
   border-image: linear-gradient(to right, #a8ffe973, #abc3c8) 1;
   width: 98vw;
@@ -49,9 +49,13 @@ export const ImageDiv = styled.div`
   overflow: hidden;
   border-radius: 10px 0 0 150px;
   border: 2px solid #ffffff87;
-  background: linear-gradient(to right, #84ffdd3d, #84ffdd0a);
+  background: linear-gradient(to right, #84ffdd0f, #84ffdd00);
 
   img {
     width: 340px;
   }
+`;
+
+export const DescriptionDiv = styled.div`
+  color: white;
 `;
