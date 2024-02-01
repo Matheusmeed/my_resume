@@ -28,7 +28,7 @@ export const StyledFaDiamond = styled(FaDiamond)`
 
 export const StyledFaRegSquare = styled(FaRegSquare)`
   font-size: 25px;
-  color: ${(props) => props.color || '#82f2fc'};
+  color: ${(props) => props.color || '#7effdbf2'};
 `;
 
 export const Button = styled.button<{
@@ -53,7 +53,7 @@ export const Button = styled.button<{
 
     * {
       color: ${({ isSelected, hoverColor }) =>
-        isSelected ? 'unset' : hoverColor ? hoverColor : '#82f2fc'};
+        isSelected ? 'unset' : hoverColor ? hoverColor : '#7effdbf2'};
     }
   }
 `;
